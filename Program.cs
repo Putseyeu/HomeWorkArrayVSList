@@ -31,7 +31,6 @@ namespace HomeWorkArrayVSList
             for (int i = 0; i < textAllArray.Length; i++)
             {
                 listAllOne.Add(textAllArray[i]);
-
             }
 
             listAllTwo = listAllOne;
