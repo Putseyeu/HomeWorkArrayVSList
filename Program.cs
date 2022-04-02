@@ -18,8 +18,7 @@ namespace HomeWorkArrayVSList2
 
             AddElement(textOneArray, listText);
             AddElement(textTwoArray, listText);            
-            ShowText(listText);
-            
+            ShowText(listText);           
         }
 
         static void AddElement(string[] array, List<string> text )
