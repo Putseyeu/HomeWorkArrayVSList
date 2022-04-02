@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWorkArrayVSList
+namespace HomeWorkArrayVSList2
 {
     internal class Program
     {
@@ -12,45 +12,33 @@ namespace HomeWorkArrayVSList
         {
             string textOne = Console.ReadLine();
             string[] textOneArray = textOne.Split(' ');
-            string textTwo = Console.ReadLine(); 
+            string textTwo = Console.ReadLine();
             string[] textTwoArray = textTwo.Split(' ');
-            string[] textAllArray = new string[textOneArray.Length + textTwoArray.Length];
-            List<string> listAllOne = new List<string>();
-            List<string> listAllTwo = new List<string>();
+            List<string> listText = new List<string>();
 
-            for (int i = 0; i < textOneArray.Length; i++)
+            AddElement(textOneArray, listText);
+            AddElement(textTwoArray, listText);            
+            ShowText(listText);
+            
+        }
+
+        static void AddElement(string[] array, List<string> text )
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                textAllArray[i] = textOneArray[i];
-            }
-
-            for (int i = 0; i < textTwoArray.Length; i++)
-            {
-                textAllArray[textOneArray.Length + i] = textTwoArray[i];
-            }
-
-            for (int i = 0; i < textAllArray.Length; i++)
-            {
-                listAllOne.Add(textAllArray[i]);
-            }
-
-            listAllTwo = listAllOne;
-
-            for (int i = 0; i < listAllOne.Count; i++)
-            {
-                for (int j = i + 1; j < listAllOne.Count; j++)
+                if (text.Contains(array[i]) == false)
                 {
-                    if (listAllOne[i] == listAllTwo[j])
-                    {
-                        listAllTwo.RemoveAt(j);
-                    }
+                    text.Add(array[i]);
                 }
             }
+        }
 
-            foreach (var word in listAllTwo)
+        static void ShowText(List<string> text)
+        {
+            foreach (string word in text)
             {
                 Console.Write(word + " ");
             }
-            Console.WriteLine();
         }
     }
 }
